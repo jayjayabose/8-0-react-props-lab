@@ -1,10 +1,6 @@
 const Progress = (props) => {
   const {donations, targetAmount} = props;
-
-  let totalRaised  = 0;
-  donations.forEach( donation => {  
-    totalRaised += donation.amount;
-  });
+  let totalRaised = donations.map(donation => donation.amount).reduce((a, b) => a + b);
 
   return (
     <section class="progress">
